@@ -14,51 +14,7 @@ La implementación usa encapsulamiento (atributos privados, propiedades, método
 
 ## Diagrama de clases 
 
-classDiagram
-    class Usuario {
-        - str _email
-        - str _nombre
-        - dict _carpetas
-        + enviar(destinatarios:list, asunto:str, cuerpo:str) Mensaje
-        + crear_carpeta(nombre:str)
-        + listar_carpetas() list
-        + obtener_carpeta(nombre:str) Carpeta
-        + propiedad email
-        + propiedad nombre
-    }
-
-    class Mensaje {
-        - str _id
-        - str _remitente
-        - list _destinatarios
-        - str _asunto
-        - str _cuerpo
-        - datetime _timestamp
-        - set _flags
-        + marcar(flag:str)
-        + desmarcar(flag:str)
-        + propiedad asunto
-        + propiedad remitente
-    }
-
-    class Carpeta {
-        - str _nombre
-        - list _mensajes
-        + agregar(m:Mensaje)
-        + eliminar(mensaje_id:str)
-        + listar() list
-        + buscar_por_asunto(clave:str) list
-        + propiedad nombre
-    }
-
-    class ServidorCorreo {
-        - dict _usuarios
-        + registrar_usuario(email:str, nombre:str) Usuario
-        + enviar_email(m:Mensaje) bool
-        + entregar()  # entrega inmediata en esta simulación
-        + obtener_usuario(email:str) Usuario
-        + listar_usuarios() list
-    }
+![diagrama](./Diagrama.png)
 
 
 1. **Encapsulamiento**: todos los atributos de las clases principales están precedidos por `_` y se exponen mediante propiedades o métodos públicos para controlar validaciones y mantener invariantes.
